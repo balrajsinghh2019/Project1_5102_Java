@@ -8,16 +8,19 @@ import java.util.Scanner;
 /**
  * @author Balraj Singh
  *
+ * StudentId n01415998
  */
 public class Account {
 	
 	public static String accountNo;
 	public static String accountType;
-	// record is used to store each account number with its account type and amount : {accountNo, accountType, amount}
-	public static String[][] record = new String[][] {
-		{"886869870", "saving", "999"},
-	    {"886869871", "saving", "999"}
-	};
+
+	// Array accounts_number used to store the account numbers.
+	public static String[] accounts_number = new String[] { "886869870", "886869871" };
+	// Array accounts_type used to store the corresponding account types.
+	public static String[] accounts_type = new String[] { "saving", "saving" };
+	// Array accounts_amount used to store the corresponding amount in accounts
+	public static String[] accounts_amount = new String[] { "999", "1500" };
 	
 	/**
 	 * @param args
@@ -55,9 +58,9 @@ public class Account {
 			accountType = "checking";
 		}
 		
-		// getting the record inner-array with matching entered account number.
-		for(int i = 0; i < record.length; i++){
-			if( accountNo.equals( record[i][0] ) && accountType.equals( record[i][1] ) ) {
+		// getting the record key of entered account number.
+		for(int i = 0; i < accounts_number.length; i++){
+			if( accountNo.equals( accounts_number[i] ) && accountType.equals( accounts_type[i] ) ) {
 				record_key = i;
 				record_status = true;
 				break;
@@ -103,15 +106,15 @@ public class Account {
 	
 	// Helper function to deposit amount to selected account
 	public static String deposit(String accountNumber, String amount, int record_key) {
-		record[record_key][2] = String.valueOf( Integer.parseInt( record[record_key][2] ) + Integer.parseInt( amount ) );
+		accounts_amount[record_key] = String.valueOf( Integer.parseInt( accounts_amount[record_key] ) + Integer.parseInt( amount ) );
 		return amount + " added into " + accountNumber + " succesfully";
 	}
 
 	// Helper function to withdraw amount to selected account
 	public static String withdraw(String accountNumber, String amount, int record_key) {
 		String str;
-		if( ( Integer.parseInt(record[record_key][2]) - Integer.parseInt(amount) ) > 0) {
-			record[record_key][2] = String.valueOf( ( Integer.parseInt(record[record_key][2]) - Integer.parseInt(amount) ) );
+		if( ( Integer.parseInt( accounts_amount[record_key] ) - Integer.parseInt(amount) ) > 0) {
+			accounts_amount[record_key] = String.valueOf( ( Integer.parseInt( accounts_amount[record_key] ) - Integer.parseInt(amount) ) );
 			str = amount + " withdraw from " + accountNumber + " succesfully";
 		} else {
 			str = "Insufficient balance";
@@ -121,6 +124,6 @@ public class Account {
 
 	// Helper function to get balance amount from selected account
 	public static String getBalance(int record_key) {
-		return record[record_key][2] + " is the Current Balance";
+		return accounts_amount[record_key] + " is the Current Balance";
 	}
 }
