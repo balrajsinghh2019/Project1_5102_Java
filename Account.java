@@ -6,21 +6,21 @@ package project1_5102;
 import java.util.Scanner;
 
 /**
- * @author Balraj Singh
+ * @author Mitul Champaneri
  *
- * StudentId n01415998
+ * StudentId n01452882
  */
 public class Account {
 	
 	public static String account_number;
 	public static String account_type;
 
-	// Array accounts_number used to store the account numbers.
-	public static String[] accounts_number = new String[] { "886869870", "886869871" };
-	// Array accounts_type used to store the corresponding account types.
-	public static String[] accounts_type = new String[] { "saving", "saving" };
-	// Array accounts_amount used to store the corresponding amount in accounts
-	public static String[] accounts_amount = new String[] { "999", "1500" };
+	// Array Bank.accounts_number used to store the account numbers.
+	//	public static String[] Bank.accounts_number = new String[] { "886869870", "886869871" };
+	// Array Bank.accounts_type used to store the corresponding account types.
+	// public static String[] Bank.accounts_type = new String[] { "saving", "saving" };
+	// Array Bank.accounts_amount used to store the corresponding amount in accounts
+	// public static String[] Bank.accounts_amount = new String[] { "999", "1500" };
 	
 	/**
 	 * @param args
@@ -59,8 +59,8 @@ public class Account {
 		}
 		
 		// getting the record key of entered account number.
-		for(int i = 0; i < accounts_number.length; i++){
-			if( account_number.equals( accounts_number[i] ) && account_type.equals( accounts_type[i] ) ) {
+		for(int i = 0; i < Bank.accounts_number.length; i++){
+			if( account_number.equals( Bank.accounts_number[i] ) && account_type.equals( Bank.accounts_type[i] ) ) {
 				record_key = i;
 				record_status = true;
 				break;
@@ -107,26 +107,26 @@ public class Account {
 		}
 	}
 	
-//	// Helper function to deposit amount to selected account
-//	public static String deposit(String accountNumber, String amount, int record_key) {
-//		accounts_amount[record_key] = String.valueOf( Integer.parseInt( accounts_amount[record_key] ) + Integer.parseInt( amount ) );
-//		return amount + " added into " + accountNumber + " succesfully";
-//	}
-//
-//	// Helper function to withdraw amount to selected account
-//	public static String withdraw(String accountNumber, String amount, int record_key) {
-//		String str;
-//		if( ( Integer.parseInt( accounts_amount[record_key] ) - Integer.parseInt(amount) ) > 0) {
-//			accounts_amount[record_key] = String.valueOf( ( Integer.parseInt( accounts_amount[record_key] ) - Integer.parseInt(amount) ) );
-//			str = amount + " withdraw from " + accountNumber + " succesfully";
-//		} else {
-//			str = "Insufficient balance";
-//		}
-//		return str;
-//	}
-//
-//	// Helper function to get balance amount from selected account
-//	public static String getBalance(int record_key) {
-//		return accounts_amount[record_key] + " is the Current Balance";
-//	}
+	// Helper function to deposit amount to selected account
+	public static String deposit(String accountNumber, String amount, int record_key) {
+		Bank.accounts_amount[record_key] = String.valueOf( Integer.parseInt( Bank.accounts_amount[record_key] ) + Integer.parseInt( amount ) );
+		return amount + " added into " + accountNumber + " succesfully";
+	}
+
+	// Helper function to withdraw amount to selected account
+	public static String withdraw(String accountNumber, String amount, int record_key) {
+		String str;
+		if( ( Integer.parseInt( Bank.accounts_amount[record_key] ) - Integer.parseInt(amount) ) > 0) {
+			Bank.accounts_amount[record_key] = String.valueOf( ( Integer.parseInt( Bank.accounts_amount[record_key] ) - Integer.parseInt(amount) ) );
+			str = amount + " withdraw from " + accountNumber + " succesfully";
+		} else {
+			str = "Insufficient balance";
+		}
+		return str;
+	}
+
+	// Helper function to get balance amount from selected account
+	public static String getBalance(int record_key) {
+		return Bank.accounts_amount[record_key] + " is the Current Balance";
+	}
 }

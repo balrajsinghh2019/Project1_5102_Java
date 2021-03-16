@@ -3,15 +3,13 @@ package project1_5102;
 import java.util.*;
 
 /**
- * @author Mitul
+ * @author Balraj Singh
  * 
- * StudentId 
+ * StudentId n01415998
  */
 public class Bank {static Scanner input = new Scanner(System.in);
-	String name, actype;
 	public static String bank_name;
 	public static String bank_number;
-	int accno, bal, a;
 	public static String account_number;
 	public static String account_type;
 	
@@ -25,27 +23,6 @@ public class Bank {static Scanner input = new Scanner(System.in);
 	public static String[] accounts_bank = new String[] { "ICICI Bank", "CIBC Bank", "ICICI Bank", "CIBC Bank", "Bank of Nova Scotia", "ICICI Bank" };
 	// Array accounts_bank_number used to store the corresponding amount in accounts
 	public static String[] accounts_bank_number = new String[] { "101", "102", "101", "102", "103", "101" };
-
-	
-	Bank(String name, int accno, String actype) {
-		this.name = name;
-		this.accno = accno;
-		this.actype = actype;
-	}
-
-	public static String bankname = "ICICI bank";
-	public static int BankNo;
-
-	public int Deposit() {
-		System.out.println("Enter the amount to deposit: ");
-		a = input.nextInt();
-		if (a < 0) {
-			System.out.println("Invalid Amount");
-			return 1;
-		}
-		bal = bal + a;
-		return 0;
-	}
 
 	// Helper function to deposit amount to selected account
 	public static String deposit(String accountNumber, String amount, int record_key) {
