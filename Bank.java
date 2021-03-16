@@ -88,6 +88,7 @@ public class Bank {static Scanner input = new Scanner(System.in);
 		return str;
 	}
 	
+	// Helper function to get the distinct values from array.
 	public static void getUniqueOnly(String arr[], int num) {
 		for (int i = 0; i < num; i++) {
 			int j;
@@ -99,6 +100,7 @@ public class Bank {static Scanner input = new Scanner(System.in);
 		}
 	}
 	
+	// Get key of specific array's element
 	public static int getKey(String arr[], String element) {
 		int key = 0;
 		for (int i = 0; i < arr.length; i++) {
@@ -111,7 +113,6 @@ public class Bank {static Scanner input = new Scanner(System.in);
 	}
 	
 	public static void validateAccountNumber(String account_number) {
-//		System.out.println(" *** " + account_number + " *** ");
 		// Account number length should be from 6 to 16
 		if( account_number.length() < 6 || account_number.length() > 16) {
 			System.out.println("Invalid Account Number");
@@ -155,8 +156,10 @@ public class Bank {static Scanner input = new Scanner(System.in);
 			}
 		}
 		
+		//we request the account number from the user.
 		System.out.println("Enter your from 6 to 16 digit numeric account number");
 		account_number = scanner.nextLine();
+		// Account number length should be from 6 to 16
 		validateAccountNumber(account_number);
 		
 		System.out.println("Please select account type. Press 1 for Saving and 2 for Checking");
@@ -171,6 +174,8 @@ public class Bank {static Scanner input = new Scanner(System.in);
 		}
 		
 		// getting the record key of entered account number.
+		//record_key as explained in the video recording is the index which links the account number,its type, balance etc with one another.
+		//it is basically the position.
 		for(int i = 0; i < accounts_number.length; i++){
 			if( account_number.equals( accounts_number[i] ) && account_type.equals( accounts_type[i] ) ) {
 				record_key = i;
@@ -182,6 +187,7 @@ public class Bank {static Scanner input = new Scanner(System.in);
 		}
 		
 		if( record_status == true ) {
+			// Menu Items created
 			while( choice.equalsIgnoreCase("YES") ) {
 				System.out.println("Press 0 to Deposit");
 				System.out.println("Press 1 to Withdraw");
